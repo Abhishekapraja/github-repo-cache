@@ -1,0 +1,24 @@
+zuul:
+  routes:
+    root:
+      path: /
+      url: forward:/local
+    org:
+      path: /orgs/Netflix
+      url: forward:/local
+    members:
+      path: /orgs/Netflix/members
+      url: forward:/local
+    repo:
+      path: /orgs/Netflix/repos
+      url: forward:/local
+    view-last_stars:
+      path: /view/top/**
+      url: forward:/view/top
+      #strip-prefix: true
+    health-check:
+      path: /healthcheck
+      url: forward:/local
+    proxy:
+      path: /**
+      url: https://api.github.com/
